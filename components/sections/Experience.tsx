@@ -106,19 +106,17 @@ export default function Experience() {
         <div className="max-w-4xl mx-auto px-4 md:px-0">
           <div className="relative">
             {/* 타임라인 라인 */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5" style={{ backgroundColor: '#EA2E00', opacity: 0.3 }} />
+            <div className="absolute left-8 md:left-0 top-0 bottom-0 w-0.5" style={{ backgroundColor: '#EA2E00', opacity: 0.3 }} />
 
             {/* 경력 카드 */}
             {experiences.map((exp, index) => (
               <motion.div
                 key={exp.company}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className={`relative mb-12 ${
-                  index % 2 === 0 ? 'md:pr-1/2 md:text-right' : 'md:pl-1/2'
-                }`}
+                className="relative mb-12 md:pl-16"
               >
                 {/* 타임라인 점 */}
                 <motion.div
@@ -126,7 +124,7 @@ export default function Experience() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 + 0.3 }}
-                  className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full transform -translate-x-1/2 z-10 ring-4 ring-background"
+                  className="absolute left-8 md:left-0 w-4 h-4 rounded-full transform -translate-x-1/2 z-10 ring-4 ring-background"
                   style={{ backgroundColor: '#EA2E00' }}
                 />
 
@@ -136,13 +134,13 @@ export default function Experience() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 + 0.4 }}
-                  className="absolute left-2 md:left-1/2 w-12 h-12 transform md:-translate-x-1/2 -translate-y-4 text-3xl flex items-center justify-center glass rounded-full"
+                  className="absolute left-2 md:left-0 w-12 h-12 transform -translate-x-1/2 -translate-y-4 text-3xl flex items-center justify-center glass rounded-full"
                 >
                   {exp.logo}
                 </motion.div>
 
                 {/* 경력 카드 */}
-                <div className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:mr-16' : 'md:ml-16'}`}>
+                <div className="ml-12 md:ml-8">
                   <Card hover3d>
                     <div className="space-y-4">
                       {/* 회사명 & 직책 */}

@@ -2,15 +2,13 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from 'react-icons/fa';
+import { FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import Container from './Container';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 const socialLinks = [
   { icon: FaLinkedin, href: 'https://www.linkedin.com/in/chanyu-lee/', label: 'LinkedIn' },
   { icon: FaEnvelope, href: 'mailto:chanyu.lee@example.com', label: 'Email' },
-  { icon: FaGithub, href: 'https://github.com', label: 'GitHub' },
-  { icon: FaTwitter, href: 'https://twitter.com', label: 'Twitter' },
 ];
 
 const navLinks = [
