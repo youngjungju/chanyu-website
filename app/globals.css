@@ -132,9 +132,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth scrolling */
+/* Smooth scrolling - disabled for Lenis */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+}
+
+/* Section snap points */
+section {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Custom scrollbar */

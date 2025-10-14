@@ -14,7 +14,12 @@ interface SectionProps {
  */
 export default function Section({ children, id, className = '', style }: SectionProps) {
   return (
-    <section id={id} className={`py-20 md:py-32 ${className}`} style={style}>
+    <section
+      id={id}
+      className={`py-20 md:py-32 min-h-screen flex flex-col justify-center ${className}`}
+      style={style}
+      data-lenis-section
+    >
       <Container>{children}</Container>
     </section>
   );

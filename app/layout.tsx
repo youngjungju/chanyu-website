@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Navbar from "@/components/ui/Navbar";
+import SmoothScrollProvider from "@/components/providers/SmoothScrollProvider";
 import "./globals.css";
+import "./lenis.css";
 
 export const metadata: Metadata = {
   title: "Chanyu Lee (Ray) | UX/UI Designer Portfolio",
@@ -31,6 +33,7 @@ export default function RootLayout({
       <body className="antialiased">
         <LanguageProvider>
           <ThemeProvider>
+            <SmoothScrollProvider />
             <Navbar />
             {children}
           </ThemeProvider>

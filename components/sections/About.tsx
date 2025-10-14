@@ -24,7 +24,7 @@ const softwares = [
   { icon: SiAdobephotoshop, name: 'Photoshop', color: '#31A8FF' },
   { icon: SiFigma, name: 'Figma', color: '#F24E1E' },
   { icon: SiBlender, name: 'Blender', color: '#F5792A' },
-  { icon: HiOfficeBuilding, name: 'Office Suite', color: '#D83B01' },
+  { icon: HiOfficeBuilding, name: 'Microsoft Office', color: '#D83B01' },
 ];
 
 const otherSkills = [
