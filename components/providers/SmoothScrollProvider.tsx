@@ -32,7 +32,7 @@ export default function SmoothScrollProvider() {
         e.preventDefault();
         const href = anchor.getAttribute('href');
         if (href && href !== '#') {
-          const targetElement = document.querySelector(href);
+          const targetElement = document.querySelector(href) as HTMLElement;
           if (targetElement) {
             lenis.scrollTo(targetElement, {
               offset: -80, // navbar 높이만큼 offset
