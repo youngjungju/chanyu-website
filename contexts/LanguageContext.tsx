@@ -7,7 +7,7 @@ type Language = 'ko' | 'en';
 interface LanguageContextType {
   language: Language;
   toggleLanguage: () => void;
-  t: (ko: string, en: string) => string;
+  t: (ko: string | ReactNode, en: string | ReactNode) => string | ReactNode;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -23,7 +23,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLanguage((prev) => (prev === 'ko' ? 'en' : 'ko'));
   };
 
-  const t = (ko: string, en: string) => {
+  const t = (ko: string | ReactNode, en: string | ReactNode) => {
     return language === 'ko' ? ko : en;
   };
 

@@ -1,10 +1,15 @@
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import { ReactNode, CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'outline';
   size?: 'sm' | 'md' | 'lg';
+  className?: string;
+  onClick?: () => void;
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+  style?: CSSProperties;
 }
 
 /**
@@ -16,7 +21,10 @@ export default function Button({
   variant = 'primary',
   size = 'md',
   className = '',
-  ...props
+  onClick,
+  disabled,
+  type = 'button',
+  style,
 }: ButtonProps) {
   const baseStyles = 'rounded-full font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed';
 
@@ -32,7 +40,7 @@ export default function Button({
     lg: 'px-8 py-4 text-lg',
   };
 
-  const getVariantStyle = () => {
+  const getVariantStyle = (): CSSProperties => {
     if (variant === 'primary') {
       return { backgroundColor: '#EA2E00' };
     } else if (variant === 'secondary') {
@@ -52,8 +60,10 @@ export default function Button({
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
-      style={getVariantStyle()}
-      {...props}
+      style={{ ...getVariantStyle(), ...style }}
+      onClick={onClick}
+      disabled={disabled}
+      type={type}
     >
       {children}
     </motion.button>
