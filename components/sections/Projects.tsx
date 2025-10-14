@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Image from 'next/image';
 import { HiExternalLink, HiCode } from 'react-icons/hi';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
@@ -202,7 +201,6 @@ export default function Projects() {
                         target="_blank"
                         rel="noopener noreferrer"
                         className="p-3 bg-white rounded-full text-black transition-colors"
-                        style={{ ['--hover-bg' as any]: '#EA2E00' }}
                         onMouseEnter={(e) => {
                           e.currentTarget.style.backgroundColor = '#EA2E00';
                           e.currentTarget.style.color = 'white';

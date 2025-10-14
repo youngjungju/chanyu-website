@@ -74,7 +74,6 @@ export default function Navbar() {
                 <Link key={item.href} href={item.href}>
                   <motion.span
                     className="text-foreground transition-colors duration-300 cursor-pointer text-base"
-                    style={{ ['--hover-color' as any]: '#EA2E00' }}
                     onMouseEnter={(e) => e.currentTarget.style.color = '#EA2E00'}
                     onMouseLeave={(e) => e.currentTarget.style.color = ''}
                     whileHover={{ scale: 1.1 }}

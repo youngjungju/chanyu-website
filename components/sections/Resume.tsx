@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { HiDownload, HiMail, HiPhone, HiLocationMarker, HiAcademicCap, HiStar } from 'react-icons/hi';
+import { HiDownload, HiMail, HiPhone, HiLocationMarker, HiAcademicCap } from 'react-icons/hi';
 import { FaLinkedin } from 'react-icons/fa';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
