@@ -1,8 +1,80 @@
 @import "tailwindcss";
 
+/* Pretendard Font */
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard';
+  src: url('/assets/fonts/pretendard/Pretendard-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
-  --background: #ffffff;
+  --background: #F0E7D6;
   --foreground: #171717;
+
+  /* Light mode colors */
+  --primary: #EA2E00;
+  --primary-dark: #C12600;
+  --secondary: #F0E7D6;
+  --accent: #EA2E00;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(234, 46, 0, 0.1);
 }
 
 @theme inline {
@@ -16,11 +88,105 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    /* Dark mode colors */
+    --primary: #EA2E00;
+    --primary-dark: #C12600;
+    --secondary: #F0E7D6;
+    --accent: #EA2E00;
+    --card-bg: rgba(240, 231, 214, 0.1);
+    --card-border: rgba(234, 46, 0, 0.2);
   }
+}
+
+[data-theme="light"] {
+  --background: #F0E7D6;
+  --foreground: #171717;
+  --primary: #EA2E00;
+  --primary-dark: #C12600;
+  --secondary: #F0E7D6;
+  --accent: #EA2E00;
+  --card-bg: rgba(255, 255, 255, 0.8);
+  --card-border: rgba(234, 46, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #EA2E00;
+  --primary-dark: #C12600;
+  --secondary: #F0E7D6;
+  --accent: #EA2E00;
+  --card-bg: rgba(240, 231, 214, 0.1);
+  --card-border: rgba(234, 46, 0, 0.2);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Pretendard', var(--font-sans), system-ui, -apple-system, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 17px; /* iOS default body text size */
+  line-height: 1.47; /* iOS optimal line height */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+}
+
+/* Mobile-first utilities following HIG */
+@media (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 2rem; /* 32px */
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 1.75rem; /* 28px */
+    line-height: 1.3;
+  }
+
+  h3 {
+    font-size: 1.5rem; /* 24px */
+    line-height: 1.3;
+  }
+
+  /* Minimum touch target 44x44pt (HIG) */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
