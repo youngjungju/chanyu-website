@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { HiBriefcase, HiCalendar } from 'react-icons/hi';
+import Image from 'next/image';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -9,7 +10,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 const experiences = [
   {
     company: 'LeTourneau University',
-    logo: '🎓',
+    logo: '/assets/images/letu.png',
     position: { ko: '프로젝트 매니저', en: 'Project Manager' },
     period: { ko: '2025.01 - 현재', en: 'Jan 2025 - Present' },
     description: {
@@ -24,7 +25,7 @@ const experiences = [
   },
   {
     company: 'Apple Developer Academy',
-    logo: '🍎',
+    logo: '/assets/images/apple.png',
     position: { ko: '디자인 리드', en: 'Design Lead' },
     period: '2024.03 - 2024.12',
     description: {
@@ -39,7 +40,7 @@ const experiences = [
   },
   {
     company: 'Team "beendoing" (Pohang City)',
-    logo: '🌱',
+    logo: '/assets/images/beendoing.jpg',
     position: { ko: '브랜드 디자인 리드', en: 'Brand Design Lead' },
     period: '2024.06 - 2024.09',
     description: {
@@ -54,7 +55,7 @@ const experiences = [
   },
   {
     company: 'Handong Global University',
-    logo: '📱',
+    logo: '/assets/images/hgu.png',
     position: { ko: '미디어 콘텐츠 팀 리드', en: 'Media Content Team Lead' },
     period: '2022.03 - 2023.12',
     description: {
@@ -124,8 +125,8 @@ export default function Experience() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 + 0.3 }}
-                  className="absolute left-8 md:left-0 w-4 h-4 rounded-full transform -translate-x-1/2 z-10 ring-4 ring-background"
-                  style={{ backgroundColor: '#EA2E00' }}
+                  className="absolute left-8 md:left-0 w-4 h-4 rounded-full transform -translate-x-1/2 ring-4 ring-background"
+                  style={{ backgroundColor: '#EA2E00', top: '24px' }}
                 />
 
                 {/* 회사 로고 */}
@@ -134,9 +135,22 @@ export default function Experience() {
                   whileInView={{ scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.2 + 0.4 }}
-                  className="absolute left-2 md:left-0 w-12 h-12 transform -translate-x-1/2 -translate-y-4 text-3xl flex items-center justify-center glass rounded-full"
+                  className="absolute left-8 md:left-0 w-12 h-12 transform -translate-x-1/2 text-3xl flex items-center justify-center rounded-full z-10 overflow-hidden"
+                  style={exp.logo.startsWith('/') ? { backgroundColor: '#FFFFFF' } : {}}
                 >
-                  {exp.logo}
+                  {exp.logo.startsWith('/') ? (
+                    <Image
+                      src={exp.logo}
+                      alt={exp.company}
+                      width={48}
+                      height={48}
+                      className="object-contain p-1"
+                    />
+                  ) : (
+                    <div className="glass w-full h-full flex items-center justify-center">
+                      {exp.logo}
+                    </div>
+                  )}
                 </motion.div>
 
                 {/* 경력 카드 */}

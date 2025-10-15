@@ -75,9 +75,9 @@ export default function Hero() {
           className="text-center max-w-4xl mx-auto"
         >
           {/* 인사말 */}
-          <motion.div variants={itemVariants} className="mb-6">
-            <span className="inline-block px-5 py-2.5 rounded-full glass text-base md:text-sm font-medium">
-              {t('👋 안녕하세요! 저는 이찬유입니다', '👋 Hello! I\'m Ray (Chanyu Lee)')}
+          <motion.div variants={itemVariants} className="mb-6 flex justify-center">
+            <span className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full glass text-base md:text-sm font-medium">
+              {t('🎨 UX/UI 디자이너 & 📢 마케터', '🎨 UX/UI Designer & 📢 Marketer')}
             </span>
           </motion.div>
 
@@ -87,7 +87,7 @@ export default function Hero() {
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
             style={{ color: '#EA2E00' }}
           >
-            UX/UI Designer
+            {t('👋 안녕하세요! 저는 이찬유입니다', '👋 Hello! I\'m Ray')}
           </motion.h1>
 
           {/* 부제목 */}
@@ -96,23 +96,32 @@ export default function Hero() {
             className="text-lg sm:text-xl md:text-2xl text-foreground/80 mb-12 leading-relaxed px-4 md:px-0"
           >
             {t(
-              '사용자 경험을 최우선으로 생각하며,',
-              'Prioritizing user experience,'
+              <>
+                <span className="font-semibold" style={{ color: '#EA2E00' }}>
+                  디자인이 말하고
+                </span>
+                ,
+              </>,
+              <>
+                <span className="font-semibold" style={{ color: '#EA2E00' }}>
+                  Design that speaks
+                </span>
+                ,
+              </>
             )}
             <br />
             {t(
               <>
                 <span className="font-semibold" style={{ color: '#EA2E00' }}>
-                  모던하고 인터랙티브한 웹
+                  브랜드가 연결
                 </span>
-                을 만듭니다.
+                됩니다.
               </>,
               <>
-                creating{' '}
                 <span className="font-semibold" style={{ color: '#EA2E00' }}>
-                  modern and interactive web
-                </span>{' '}
-                experiences.
+                  brands that connect
+                </span>
+                .
               </>
             )}
           </motion.p>

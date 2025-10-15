@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { HiDownload, HiMail, HiPhone, HiLocationMarker, HiAcademicCap } from 'react-icons/hi';
 import { FaLinkedin } from 'react-icons/fa';
+import Image from 'next/image';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -18,6 +19,7 @@ const resumeData = {
   education: [
     {
       school: { ko: 'LeTourneau University', en: 'LeTourneau University' },
+      logo: '/assets/images/letu.png',
       location: { ko: 'Longview, TX', en: 'Longview, TX' },
       degree: { ko: 'Business & Human Centered Design', en: 'Business & Human Centered Design' },
       period: 'Jan 2025 - Dec 2025',
@@ -25,6 +27,7 @@ const resumeData = {
     },
     {
       school: { ko: '한동대학교', en: 'Handong Global University' },
+      logo: '/assets/images/hgu.png',
       location: { ko: 'Pohang, S. Korea', en: 'Pohang, S. Korea' },
       degree: { ko: 'Global Entrepreneurship & Visual Design', en: 'Global Entrepreneurship & Visual Design' },
       period: 'Mar 2022 - Current',
@@ -193,24 +196,39 @@ export default function Resume() {
             <div className="space-y-4">
               {resumeData.education.map((edu, index) => (
                 <Card key={index}>
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div className="flex-1">
-                      <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2 mb-2">
-                        <h4 className="text-lg sm:text-xl font-bold leading-tight">
-                          {language === 'ko' ? edu.school.ko : edu.school.en}
-                        </h4>
-                        <span className="text-sm text-foreground/60">
-                          {language === 'ko' ? edu.location.ko : edu.location.en}
+                  <div className="flex gap-4">
+                    {/* 학교 로고 */}
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-white">
+                        <Image
+                          src={edu.logo}
+                          alt={language === 'ko' ? edu.school.ko : edu.school.en}
+                          width={64}
+                          height={64}
+                          className="object-contain p-2"
+                        />
+                      </div>
+                    </div>
+                    {/* 학교 정보 */}
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 flex-1 min-w-0">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2 mb-2">
+                          <h4 className="text-lg sm:text-xl font-bold leading-tight">
+                            {language === 'ko' ? edu.school.ko : edu.school.en}
+                          </h4>
+                          <span className="text-sm text-foreground/60">
+                            {language === 'ko' ? edu.location.ko : edu.location.en}
+                          </span>
+                        </div>
+                        <p className="font-medium mb-1 text-sm sm:text-base" style={{ color: '#EA2E00' }}>
+                          {language === 'ko' ? edu.degree.ko : edu.degree.en}
+                        </p>
+                      </div>
+                      <div className="md:flex-shrink-0">
+                        <span className="inline-block px-4 py-2 rounded-full glass text-sm font-medium min-h-[36px]">
+                          {edu.period}
                         </span>
                       </div>
-                      <p className="font-medium mb-1 text-sm sm:text-base" style={{ color: '#EA2E00' }}>
-                        {language === 'ko' ? edu.degree.ko : edu.degree.en}
-                      </p>
-                    </div>
-                    <div className="md:flex-shrink-0">
-                      <span className="inline-block px-4 py-2 rounded-full glass text-sm font-medium min-h-[36px]">
-                        {edu.period}
-                      </span>
                     </div>
                   </div>
                 </Card>

@@ -46,9 +46,9 @@ const projects = [
       ko: '프로젝트 매니저로 일정 및 결과물을 조정하고 마일스톤을 예정보다 앞당겨 완료했습니다.',
       en: 'Project Manager coordinating timelines and deliverables, completing milestones ahead of schedule.'
     },
-    image: '🚀',
+    image: '/assets/images/stars.png',
     tags: ['Project Management', 'Technical Documentation', 'Navy Contractor'],
-    demoLink: '#',
+    demoLink: '/assets/documents/STARS.pdf',
     githubLink: '#',
   },
   {
