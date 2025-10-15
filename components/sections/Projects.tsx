@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HiExternalLink, HiCode } from 'react-icons/hi';
+import { HiExternalLink } from 'react-icons/hi';
+import Image from 'next/image';
 import Section from '@/components/ui/Section';
 import Card from '@/components/ui/Card';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -21,9 +22,9 @@ const projects = [
       ko: '학생과 구직자를 위한 4시간 생산성 모델 기반 앱. UX 리서치를 통해 사용자 페르소나를 개발하고 Figma로 인터페이스를 디자인했습니다.',
       en: 'Productivity app based on 4-hour model for students and job seekers. Conducted UX research to develop user personas and designed interface using Figma.'
     },
-    image: '⏰',
+    image: '/assets/images/fourtime.png',
     tags: ['Figma', 'UX Research', 'User Personas', 'iOS'],
-    demoLink: '#',
+    demoLink: 'https://apps.apple.com/az/app/%EB%84%A4%EC%8B%9C%EA%B0%84/id6615066319',
     githubLink: '#',
   },
   {
@@ -33,17 +34,17 @@ const projects = [
       ko: '포항시 후원 지속가능성 이벤트를 위한 ESG 브랜드 디자인. 100명 이상이 참석한 행사를 위해 배너, 포스터, 키트 등 마케팅 콜래터럴을 제작했습니다.',
       en: 'ESG brand design for sustainability event sponsored by Pohang City. Created marketing collateral including banners, posters, and kits for event with 100+ attendees.'
     },
-    image: '🌱',
+    image: '/assets/images/beendoing.jpg',
     tags: ['Adobe Illustrator', 'Adobe Photoshop', 'Brand Design'],
-    demoLink: '#',
+    demoLink: 'https://www.instagram.com/been._.doing/',
     githubLink: '#',
   },
   {
-    title: 'U.S. Navy STARS Project',
+    title: 'U.S. Navy contractor-sponsored STARS project',
     category: 'Design',
     description: {
-      ko: 'U.S. Navy 계약업체 후원 STARS 프로젝트의 프로젝트 매니저로 일정 및 결과물을 조정하고 마일스톤을 예정보다 앞당겨 완료했습니다.',
-      en: 'Project Manager for U.S. Navy contractor-sponsored STARS project. Coordinated timelines and deliverables, completing milestones ahead of schedule.'
+      ko: '프로젝트 매니저로 일정 및 결과물을 조정하고 마일스톤을 예정보다 앞당겨 완료했습니다.',
+      en: 'Project Manager coordinating timelines and deliverables, completing milestones ahead of schedule.'
     },
     image: '🚀',
     tags: ['Project Management', 'Technical Documentation', 'Navy Contractor'],
@@ -51,15 +52,15 @@ const projects = [
     githubLink: '#',
   },
   {
-    title: 'HGU Social Media Growth Campaign',
+    title: 'Student Ambassador of HGU',
     category: 'Marketing',
     description: {
       ko: '한동대학교 학생 홍보대사로서 공식 소셜 미디어를 관리하여 팔로워 1,000명 이상, 총 릴스 조회수 50,000회 이상을 달성했습니다.',
       en: 'Managed official social media for Handong Global University as Student Ambassador, growing followers to 1,000+ and achieving 50,000+ total Reels views.'
     },
-    image: '📱',
+    image: '/assets/images/nanumi.jpg',
     tags: ['Adobe Premiere Pro', 'Social Media', 'Content Creation'],
-    demoLink: '#',
+    demoLink: 'https://www.instagram.com/nanumi_hgu/',
     githubLink: '#',
   },
   {
@@ -69,9 +70,9 @@ const projects = [
       ko: 'LeTourneau University의 국제학생 오리엔테이션 행사를 주도하고 After Effects로 커스텀 인트로가 포함된 Instagram 프로모션 비디오를 제작했습니다.',
       en: 'Led orientation events for international students at LeTourneau University and produced Instagram promo videos with custom After Effects intros.'
     },
-    image: '🎥',
+    image: '/assets/images/ogi.png',
     tags: ['After Effects', 'Instagram', 'Video Production'],
-    demoLink: '#',
+    demoLink: 'https://www.instagram.com/letuogi/',
     githubLink: '#',
   },
   {
@@ -81,9 +82,9 @@ const projects = [
       ko: '베트남 하노이 Business Pizza Hackathon에서 베트남 유통 스타트업을 위한 시장 진출 전략을 개발하고 발표했습니다.',
       en: 'Developed and pitched go-to-market strategy for Vietnamese distribution startup at Business Pizza Hackathon in Hanoi, Vietnam.'
     },
-    image: '🍕',
+    image: '/assets/images/BPH.jpeg',
     tags: ['Business Strategy', 'Brand Positioning', 'Market Research'],
-    demoLink: '#',
+    demoLink: 'https://www.linkedin.com/posts/eliotshin_business-pizza-hackathon-between-ftu-and-activity-7089504551900221440-lMK7/',
     githubLink: '#',
   },
 ];
@@ -179,16 +180,16 @@ export default function Projects() {
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.3 }}
                   >
-                    {/* 이미지 플레이스홀더 */}
-                    <div className="text-6xl">{project.image}</div>
-                    {/* 실제 이미지 사용 시:
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover"
-                    />
-                    */}
+                    {project.image.startsWith('/') ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="text-6xl">{project.image}</div>
+                    )}
 
                     {/* 호버 오버레이 */}
                     <motion.div
@@ -213,24 +214,6 @@ export default function Projects() {
                         whileTap={{ scale: 0.9 }}
                       >
                         <HiExternalLink className="w-5 h-5" />
-                      </motion.a>
-                      <motion.a
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-3 bg-white rounded-full text-black transition-colors"
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#EA2E00';
-                          e.currentTarget.style.color = 'white';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = 'white';
-                          e.currentTarget.style.color = 'black';
-                        }}
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <HiCode className="w-5 h-5" />
                       </motion.a>
                     </motion.div>
                   </motion.div>
