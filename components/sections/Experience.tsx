@@ -140,7 +140,7 @@ export default function Experience() {
                 </motion.div>
 
                 {/* 경력 카드 */}
-                <div className="ml-12 md:ml-8">
+                <div className="ml-12 md:ml-8" data-scroll-card style={{ transition: 'transform 0.3s ease-out' }}>
                   <Card hover3d>
                     <div className="space-y-4">
                       {/* 회사명 & 직책 */}

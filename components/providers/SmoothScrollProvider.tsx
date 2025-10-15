@@ -23,6 +23,27 @@ export default function SmoothScrollProvider() {
 
     requestAnimationFrame(raf);
 
+    // 스크롤 기반 카드 scale 애니메이션
+    lenis.on('scroll', () => {
+      const cards = document.querySelectorAll('[data-scroll-card]');
+
+      cards.forEach((card) => {
+        const rect = card.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const cardCenter = rect.top + rect.height / 2;
+        const screenCenter = windowHeight / 2;
+
+        // 카드 중심과 화면 중심 사이의 거리
+        const distance = Math.abs(cardCenter - screenCenter);
+        const maxDistance = windowHeight / 2;
+
+        // 거리에 따라 scale 계산 (가까울수록 크게)
+        const scale = Math.max(0.85, 1 - (distance / maxDistance) * 0.15);
+
+        (card as HTMLElement).style.transform = `scale(${scale})`;
+      });
+    });
+
     // Navbar 링크 클릭 시 부드러운 스크롤
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
