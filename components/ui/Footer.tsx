@@ -45,8 +45,8 @@ export default function Footer() {
             </h3>
             <p className="text-foreground/70 leading-relaxed text-sm sm:text-base">
               {t(
-                '사용자 경험을 최우선으로 생각하며, 모던하고 인터랙티브한 웹을 만듭니다.',
-                'Prioritizing user experience, creating modern and interactive web experiences.'
+                '말하는 디자인, 연결하는 브랜드.',
+                'Design that speaks, brands that connect.'
               )}
             </p>
           </motion.div>

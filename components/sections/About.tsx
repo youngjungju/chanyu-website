@@ -70,10 +70,10 @@ export default function About() {
   };
 
   const interests = [
-    { ko: '웹 개발', en: 'Web Development' },
     { ko: 'UI/UX 디자인', en: 'UI/UX Design' },
-    { ko: '성능 최적화', en: 'Performance Optimization' },
-    { ko: '오픈소스', en: 'Open Source' },
+    { ko: '마케팅', en: 'Marketing' },
+    { ko: '브랜드 개발', en: 'Brand Development' },
+    { ko: '프로젝트 관리', en: 'Project Management' },
   ];
 
   const containerVariants = {
@@ -122,18 +122,35 @@ export default function About() {
                 transition={{ duration: 0.3 }}
                 className="relative aspect-square rounded-2xl overflow-hidden group"
               >
-                <Image
-                  src={profileImages[currentImageIndex]}
-                  alt={`Profile ${currentImageIndex + 1}`}
-                  fill
-                  className="object-cover transition-opacity duration-500"
-                  key={currentImageIndex}
-                />
+                <div className="relative w-full h-full">
+                  {profileImages.map((image, index) => (
+                    <motion.div
+                      key={index}
+                      initial={false}
+                      animate={{
+                        x: `${(index - currentImageIndex) * 100}%`,
+                      }}
+                      transition={{
+                        type: 'spring',
+                        stiffness: 300,
+                        damping: 30,
+                      }}
+                      className="absolute inset-0"
+                    >
+                      <Image
+                        src={image}
+                        alt={`Profile ${index + 1}`}
+                        fill
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
 
                 {/* 왼쪽 화살표 */}
                 <button
                   onClick={handlePrevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70 z-10"
                   aria-label="Previous image"
                 >
                   <HiChevronLeft className="w-6 h-6" />
@@ -142,14 +159,14 @@ export default function About() {
                 {/* 오른쪽 화살표 */}
                 <button
                   onClick={handleNextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/50 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/70 z-10"
                   aria-label="Next image"
                 >
                   <HiChevronRight className="w-6 h-6" />
                 </button>
 
                 {/* 인디케이터 */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
                   {profileImages.map((_, index) => (
                     <button
                       key={index}

@@ -26,6 +26,14 @@ const resumeData = {
       description: { ko: '비즈니스 및 인간 중심 디자인', en: 'Business & Human Centered Design' },
     },
     {
+      school: { ko: 'Apple Developer Academy @ POSTECH', en: 'Apple Developer Academy @ POSTECH' },
+      logo: '/assets/images/apple.png',
+      location: { ko: 'Pohang, S. Korea', en: 'Pohang, S. Korea' },
+      degree: { ko: 'UX / UI Design Learner', en: 'UX / UI Design Learner' },
+      period: 'Mar 2024 - Dec 2024',
+      description: { ko: 'UX / UI 디자인 학습', en: 'UX / UI Design Learner' },
+    },
+    {
       school: { ko: '한동대학교', en: 'Handong Global University' },
       logo: '/assets/images/hgu.png',
       location: { ko: 'Pohang, S. Korea', en: 'Pohang, S. Korea' },
