@@ -65,13 +65,13 @@
 }
 
 :root {
-  --background: #F0E7D6;
+  --background: #F4F3F1;
   --foreground: #171717;
 
   /* Light mode colors */
   --primary: #EA2E00;
   --primary-dark: #C12600;
-  --secondary: #F0E7D6;
+  --secondary: #F4F3F1;
   --accent: #EA2E00;
   --card-bg: rgba(255, 255, 255, 0.8);
   --card-border: rgba(234, 46, 0, 0.1);
@@ -92,7 +92,7 @@
     /* Dark mode colors */
     --primary: #EA2E00;
     --primary-dark: #C12600;
-    --secondary: #F0E7D6;
+    --secondary: #F4F3F1;
     --accent: #EA2E00;
     --card-bg: rgba(240, 231, 214, 0.1);
     --card-border: rgba(234, 46, 0, 0.2);
@@ -100,11 +100,11 @@
 }
 
 [data-theme="light"] {
-  --background: #F0E7D6;
+  --background: #F4F3F1;
   --foreground: #171717;
   --primary: #EA2E00;
   --primary-dark: #C12600;
-  --secondary: #F0E7D6;
+  --secondary: #F4F3F1;
   --accent: #EA2E00;
   --card-bg: rgba(255, 255, 255, 0.8);
   --card-border: rgba(234, 46, 0, 0.1);
@@ -115,7 +115,7 @@
   --foreground: #ededed;
   --primary: #EA2E00;
   --primary-dark: #C12600;
-  --secondary: #F0E7D6;
+  --secondary: #F4F3F1;
   --accent: #EA2E00;
   --card-bg: rgba(240, 231, 214, 0.1);
   --card-border: rgba(234, 46, 0, 0.2);
