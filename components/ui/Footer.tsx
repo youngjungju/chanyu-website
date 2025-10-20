@@ -8,7 +8,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const socialLinks = [
   { icon: FaLinkedin, href: 'https://www.linkedin.com/in/chanyu-lee/', label: 'LinkedIn' },
-  { icon: FaEnvelope, href: 'mailto:chanyu.lee@example.com', label: 'Email' },
+  { icon: FaEnvelope, href: 'mailto:chanyu.lee@gmail.com', label: 'Email' },
 ];
 
 const navLinks = [

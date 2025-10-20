@@ -11,7 +11,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const resumeData = {
   contact: {
-    email: 'chanyu.lee@example.com',
+    email: 'chanyu.lee@gmail.com',
     phone: '+1 (430) 215-7209',
     location: { ko: '롱뷰, 텍사스', en: 'Longview, TX' },
     linkedin: 'https://www.linkedin.com/in/chanyu-lee/',
