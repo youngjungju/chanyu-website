@@ -20,7 +20,7 @@ const navLinks = [
 ];
 
 /**
- * 푸터 컴포넌트
+ * 푸터 컴포넌트..
  * 소셜 미디어 링크, 네비게이션, 저작권 정보 포함
  */
 export default function Footer() {
